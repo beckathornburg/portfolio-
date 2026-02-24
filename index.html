@@ -1,7 +1,7 @@
- <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
+<!DOCTYPE html>                                                                                                       
+  <html lang="en">                                                                                                      
+  <head>                                                                                                                
+    <meta charset="UTF-8">                                                                                              
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Becka Thornburg — Portfolio</title>
     <!--
@@ -12,8 +12,17 @@
       ╚══════════════════════════════════════════════════════════╝
     -->
     <style>
+      /* ─────────────────────────────────────────────────────────────
+         GOOGLE FONTS
+         Cormorant Garamond — headlines
+         Lato — body text, captions, buttons
+      ───────────────────────────────────────────────────────────── */
       @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lato:wght@300;400;700;900&d
   isplay=swap');
+
+      /* ─────────────────────────────────────────────────────────────
+         CSS VARIABLES
+      ───────────────────────────────────────────────────────────── */
       :root {
         --grad-accent: linear-gradient(135deg, #C2185B, #E65100);
         --page-bg: linear-gradient(155deg, #5C0026 0%, #8B0036 20%, #C2185B 55%, #B03000 80%, #E65100 100%);
@@ -27,8 +36,18 @@
         --card-hover-shadow: 0 20px 60px rgba(194, 24, 91, 0.4);
         --section-pad: clamp(60px, 8vw, 100px) clamp(24px, 6vw, 90px);
       }
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      html { scroll-behavior: smooth; }
+
+      /* ─────────────────────────────────────────────────────────────
+         RESET & BASE
+      ───────────────────────────────────────────────────────────── */
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
       body {
         background: var(--page-bg);
         background-attachment: fixed;
@@ -38,14 +57,31 @@
         overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
       }
-      img { max-width: 100%; display: block; }
-      a { text-decoration: none; }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        text-decoration: none;
+      }
+
+      /* ─────────────────────────────────────────────────────────────
+         SCROLL ANIMATIONS
+      ───────────────────────────────────────────────────────────── */
       .fade-up {
         opacity: 0;
         transform: translateY(36px);
-        transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
       }
-      .fade-up.visible { opacity: 1; transform: translateY(0); }
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ─────────────────────────────────────────────────────────────
+         SHARED SECTION STYLES
+      ───────────────────────────────────────────────────────────── */
       .section-label {
         font-family: var(--font-b);
         font-size: 0.7rem;
@@ -85,8 +121,16 @@
         font-weight: 300;
         line-height: 1.7;
       }
-      .subsection { margin-bottom: 72px; }
-      .subsection:last-child { margin-bottom: 0; }
+      .subsection {
+        margin-bottom: 72px;
+      }
+      .subsection:last-child {
+        margin-bottom: 0;
+      }
+
+      /* ─────────────────────────────────────────────────────────────
+         SECTION 1 — HERO
+      ───────────────────────────────────────────────────────────── */
       #hero {
         min-height: 100vh;
         display: flex;
@@ -95,6 +139,7 @@
         gap: clamp(40px, 5vw, 80px);
         position: relative;
       }
+      /* Subtle gradient overlay for depth */
       #hero::before {
         content: '';
         position: absolute;
@@ -102,9 +147,21 @@
         background: radial-gradient(ellipse at 70% 50%, rgba(230, 81, 0, 0.15) 0%, transparent 65%);
         pointer-events: none;
       }
-      .hero-left { flex: 1; min-width: 0; max-width: 600px; position: relative; z-index: 1; }
-      .hero-right { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; position: relative;
-  z-index: 1; }
+      .hero-left {
+        flex: 1;
+        min-width: 0;
+        max-width: 600px;
+        position: relative;
+        z-index: 1;
+      }
+      .hero-right {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+      }
       h1.hero-name {
         font-family: var(--font-h);
         font-size: clamp(3.2rem, 6.5vw, 6rem);
@@ -141,7 +198,9 @@
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
       }
-      .bio-box p + p { margin-top: 12px; }
+      .bio-box p + p {
+        margin-top: 12px;
+      }
       .hero-tagline {
         font-family: var(--font-h);
         font-size: clamp(1.2rem, 2.2vw, 1.65rem);
@@ -151,7 +210,11 @@
         margin-bottom: 26px;
         letter-spacing: -0.01em;
       }
-      .hero-buttons { display: flex; flex-wrap: wrap; gap: 14px; }
+      .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
       .btn-outline {
         font-family: var(--font-b);
         font-size: 0.82rem;
@@ -165,7 +228,10 @@
         padding: 10px 20px;
         display: inline-block;
         cursor: pointer;
-        transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+        transition: background 0.25s ease,
+                    border-color 0.25s ease,
+                    box-shadow 0.25s ease,
+                    transform 0.25s ease;
       }
       .btn-outline:hover {
         background: linear-gradient(135deg, #C2185B, #E65100);
@@ -180,17 +246,33 @@
         object-position: top center;
         border-radius: 20px;
         border: 4px solid rgba(255, 255, 255, 0.28);
-        box-shadow: 0 20px 70px rgba(0, 0, 0, 0.35), 0 0 0 8px rgba(255, 255, 255, 0.06);
+        box-shadow: 0 20px 70px rgba(0, 0, 0, 0.35),
+                    0 0 0 8px rgba(255, 255, 255, 0.06);
         transition: transform 0.4s ease, box-shadow 0.4s ease;
       }
       @media (max-width: 960px) {
-        .headshot { width: min(300px, 80vw); height: auto; object-position: top center; }
+        .headshot {
+          width: min(300px, 80vw);
+          height: auto;
+          object-position: top center;
+        }
       }
       .headshot:hover {
         transform: scale(1.025);
-        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4), 0 0 0 8px rgba(255, 255, 255, 0.1);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4),
+                    0 0 0 8px rgba(255, 255, 255, 0.1);
       }
-      #work { padding: var(--section-pad); background: rgba(0, 0, 0, 0.12); position: relative; }
+
+      /* ─────────────────────────────────────────────────────────────
+         SECTION 2 — BODY OF WORK
+      ───────────────────────────────────────────────────────────── */
+      #work {
+        padding: var(--section-pad);
+        background: rgba(0, 0, 0, 0.12);
+        position: relative;
+      }
+
+      /* ── VIDEO SCROLL ROW ── */
       .video-scroll-wrap {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
@@ -200,8 +282,15 @@
       }
       .video-scroll-wrap::-webkit-scrollbar { height: 3px; }
       .video-scroll-wrap::-webkit-scrollbar-track { background: transparent; }
-      .video-scroll-wrap::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); border-radius: 2px; }
-      .video-row { display: flex; gap: 20px; width: max-content; }
+      .video-scroll-wrap::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+      }
+      .video-row {
+        display: flex;
+        gap: 20px;
+        width: max-content;
+      }
       .video-card {
         width: 300px;
         flex-shrink: 0;
@@ -213,19 +302,43 @@
         display: block;
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
-        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.35s ease,
+                    border-color 0.35s ease;
       }
       .video-card:hover {
         transform: translateY(-8px) scale(1.02);
         box-shadow: var(--card-hover-shadow);
         border-color: rgba(194, 24, 91, 0.5);
       }
-      .video-card img { width: 100%; height: 168px; object-fit: cover; display: block; transition: opacity 0.3s; }
-      .video-card-body { padding: 16px 18px 20px; }
-      .video-card-body p { font-family: var(--font-b); font-size: 0.79rem; line-height: 1.65; color: rgba(255, 248, 240,
-   0.82); }
-      .card-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-      .card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .video-card img {
+        width: 100%;
+        height: 168px;
+        object-fit: cover;
+        display: block;
+        transition: opacity 0.3s;
+      }
+      .video-card-body {
+        padding: 16px 18px 20px;
+      }
+      .video-card-body p {
+        font-family: var(--font-b);
+        font-size: 0.79rem;
+        line-height: 1.65;
+        color: rgba(255, 248, 240, 0.82);
+      }
+
+      /* ── CARD GRIDS ── */
+      .card-grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .card-grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
       .project-card {
         background: var(--card-bg);
         border: 1px solid var(--card-border);
@@ -236,21 +349,63 @@
         flex-direction: column;
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
-        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.35s ease,
+                    border-color 0.35s ease;
       }
-      a.project-card:hover { transform: translateY(-7px); box-shadow: var(--card-hover-shadow); border-color: rgba(230,
-  81, 0, 0.45); }
-      .project-card.no-link { cursor: default; }
-      .project-card.no-link:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); }
-      .card-thumb { width: 100%; height: 190px; object-fit: cover; object-position: top; display: block; }
-      .card-thumb-placeholder { width: 100%; height: 190px; display: flex; align-items: center; justify-content: center;
-   flex-direction: column; gap: 12px; padding: 20px; }
-      .card-thumb-placeholder .ph-icon { font-size: 2.8rem; line-height: 1; }
-      .card-thumb-placeholder .ph-label { font-family: var(--font-b); font-size: 0.72rem; color: rgba(255, 255, 255,
-  0.7); text-align: center; letter-spacing: 0.05em; word-break: break-all; }
-      .card-body { padding: 16px 18px 20px; flex: 1; }
-      .card-body p { font-family: var(--font-b); font-size: 0.82rem; line-height: 1.65; color: rgba(255, 248, 240,
-  0.83); }
+      a.project-card:hover {
+        transform: translateY(-7px);
+        box-shadow: var(--card-hover-shadow);
+        border-color: rgba(230, 81, 0, 0.45);
+      }
+      .project-card.no-link {
+        cursor: default;
+      }
+      .project-card.no-link:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      }
+      .card-thumb {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+      }
+      .card-thumb-placeholder {
+        width: 100%;
+        height: 190px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+      }
+      .card-thumb-placeholder .ph-icon {
+        font-size: 2.8rem;
+        line-height: 1;
+      }
+      .card-thumb-placeholder .ph-label {
+        font-family: var(--font-b);
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        letter-spacing: 0.05em;
+        word-break: break-all;
+      }
+      .card-body {
+        padding: 16px 18px 20px;
+        flex: 1;
+      }
+      .card-body p {
+        font-family: var(--font-b);
+        font-size: 0.82rem;
+        line-height: 1.65;
+        color: rgba(255, 248, 240, 0.83);
+      }
+
+      /* Placeholder background themes */
       .bg-canva     { background: linear-gradient(135deg, #6B21D8 0%, #00B4D8 100%); }
       .bg-tiktok    { background: linear-gradient(135deg, #010101 0%, #1a1a1a 60%, #111 100%); }
       .bg-linkedin  { background: linear-gradient(135deg, #0077B5 0%, #005A8E 100%); }
@@ -258,8 +413,20 @@
       .bg-instagram { background: linear-gradient(135deg, #833AB4 0%, #C13584 40%, #FD1D1D 75%, #F77737 100%); }
       .bg-finance   { background: linear-gradient(135deg, #0f2027 0%, #1c3a47 60%, #2c5364 100%); }
       .bg-dk        { background: linear-gradient(135deg, #005e2b 0%, #00843D 60%, #00a84f 100%); }
-      #skills { padding: var(--section-pad); background: rgba(0, 0, 0, 0.08); }
-      .skills-cloud { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px; }
+
+      /* ─────────────────────────────────────────────────────────────
+         SECTION 3 — SKILLS
+      ───────────────────────────────────────────────────────────── */
+      #skills {
+        padding: var(--section-pad);
+        background: rgba(0, 0, 0, 0.08);
+      }
+      .skills-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding-top: 8px;
+      }
       .skill-tag {
         font-family: var(--font-b);
         font-size: 0.82rem;
@@ -272,7 +439,10 @@
         padding: 10px 20px;
         display: inline-block;
         cursor: default;
-        transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+        transition: background 0.25s ease,
+                    border-color 0.25s ease,
+                    box-shadow 0.25s ease,
+                    transform 0.25s ease;
       }
       .skill-tag:hover {
         background: linear-gradient(135deg, #C2185B, #E65100);
@@ -280,6 +450,10 @@
         box-shadow: 0 4px 20px rgba(194, 24, 91, 0.45);
         transform: translateY(-2px);
       }
+
+      /* ─────────────────────────────────────────────────────────────
+         SECTION 4 — FOOTER
+      ───────────────────────────────────────────────────────────── */
       #footer {
         padding: var(--section-pad);
         display: flex;
@@ -295,9 +469,20 @@
         background: radial-gradient(ellipse at 30% 60%, rgba(194, 24, 91, 0.12) 0%, transparent 60%);
         pointer-events: none;
       }
-      .footer-left { flex: 1; min-width: 0; position: relative; z-index: 1; }
-      .footer-right { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; position: relative;
-  z-index: 1; }
+      .footer-left {
+        flex: 1;
+        min-width: 0;
+        position: relative;
+        z-index: 1;
+      }
+      .footer-right {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+      }
       h2.footer-headline {
         font-family: var(--font-h);
         font-size: clamp(2.8rem, 5.5vw, 5rem);
@@ -306,40 +491,100 @@
         margin-bottom: 22px;
         letter-spacing: -0.01em;
       }
-      .footer-text { font-family: var(--font-b); font-size: 1.05rem; color: rgba(255, 248, 240, 0.82); line-height: 1.8;
-   max-width: 480px; }
-      .footer-text a { color: var(--cream); text-decoration: underline; text-decoration-color: rgba(255, 248, 240, 0.5);
-   text-underline-offset: 4px; transition: opacity 0.2s, text-decoration-color 0.2s; }
-      .footer-text a:hover { opacity: 0.85; text-decoration-color: var(--cream); }
-      .footer-photo { width: clamp(220px, 24vw, 380px); height: auto; object-fit: cover; border-radius: 20px; border:
-  4px solid rgba(255, 255, 255, 0.28); box-shadow: 0 20px 70px rgba(0, 0, 0, 0.35), 0 0 0 8px rgba(255, 255, 255, 0.06);
-   transition: transform 0.4s ease; }
-      .footer-photo:hover { transform: scale(1.025); }
+      .footer-text {
+        font-family: var(--font-b);
+        font-size: 1.05rem;
+        color: rgba(255, 248, 240, 0.82);
+        line-height: 1.8;
+        max-width: 480px;
+      }
+      .footer-text a {
+        color: var(--cream);
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 248, 240, 0.5);
+        text-underline-offset: 4px;
+        transition: opacity 0.2s, text-decoration-color 0.2s;
+      }
+      .footer-text a:hover {
+        opacity: 0.85;
+        text-decoration-color: var(--cream);
+      }
+      .footer-photo {
+        width: clamp(220px, 24vw, 380px);
+        height: auto;
+        object-fit: cover;
+        border-radius: 20px;
+        border: 4px solid rgba(255, 255, 255, 0.28);
+        box-shadow: 0 20px 70px rgba(0, 0, 0, 0.35),
+                    0 0 0 8px rgba(255, 255, 255, 0.06);
+        transition: transform 0.4s ease;
+      }
+      .footer-photo:hover {
+        transform: scale(1.025);
+      }
+
+      /* ─────────────────────────────────────────────────────────────
+         RESPONSIVE
+      ───────────────────────────────────────────────────────────── */
       @media (max-width: 960px) {
-        #hero { flex-direction: column; text-align: center; align-items: center; padding-top: 70px; padding-bottom:
-  70px; }
-        .hero-left { max-width: 100%; order: 2; }
-        .hero-right { order: 1; }
-        .hero-buttons { justify-content: center; }
-        .card-grid-3 { grid-template-columns: repeat(2, 1fr); }
-        #footer { flex-direction: column; text-align: center; }
-        .footer-right { order: -1; }
-        .footer-text { max-width: 100%; }
+        #hero {
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+          padding-top: 70px;
+          padding-bottom: 70px;
+        }
+        .hero-left {
+          max-width: 100%;
+          order: 2;
+        }
+        .hero-right {
+          order: 1;
+        }
+        .hero-buttons {
+          justify-content: center;
+        }
+        .card-grid-3 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        #footer {
+          flex-direction: column;
+          text-align: center;
+        }
+        .footer-right {
+          order: -1;
+        }
+        .footer-text {
+          max-width: 100%;
+        }
       }
       @media (max-width: 640px) {
-        .card-grid-2, .card-grid-3 { grid-template-columns: 1fr; }
-        .video-card { width: 265px; }
-        .headshot { width: 200px; height: 200px; }
+        .card-grid-2,
+        .card-grid-3 {
+          grid-template-columns: 1fr;
+        }
+        .video-card {
+          width: 265px;
+        }
+        .headshot {
+          width: 200px;
+          height: 200px;
+        }
       }
     </style>
   </head>
   <body>
 
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 1 — HERO
+    ══════════════════════════════════════════════════════════════ -->
     <section id="hero">
+
       <div class="hero-left fade-up">
         <h1 class="hero-name">Rebecca Thornburg</h1>
         <h2 class="hero-subtitle">Content Marketer | Event Planner | AI Strategist</h2>
         <p class="hero-credit">Created by Claude Code.</p>
+
         <div class="bio-box">
           <p>Hey, I'm Becka. My path hasn't been linear, but no matter where my career has taken me, storytelling has
   always been my superpower.</p>
@@ -358,125 +603,201 @@
    I see a new way to be creative, I dive right in. I won't shy away from getting out of my comfort zone, especially if
   it can enhance my stories.</p>
         </div>
+
         <p class="hero-tagline">Big ideas, bold execution, and lots of energy. What story will we tell together?</p>
+
         <div class="hero-buttons">
-          <a class="btn-outline" 
-  href="https://drive.google.com/file/d/1yTTrOQjcJx4zD5IGIrAsaRgyoMMnly8U/view?usp=sharing" target="_blank" 
-  rel="noopener noreferrer">Resume</a>
-          <a class="btn-outline" href="https://www.linkedin.com/in/rebeccathornburg/" target="_blank" rel="noopener
-  noreferrer">LinkedIn</a>
-          <a class="btn-outline" href="https://beckathornburg.com/" target="_blank" rel="noopener
-  noreferrer">Website</a>
+          <a class="btn-outline"
+             href="https://drive.google.com/file/d/1yTTrOQjcJx4zD5IGIrAsaRgyoMMnly8U/view?usp=sharing"
+             target="_blank" rel="noopener noreferrer">Resume</a>
+          <a class="btn-outline"
+             href="https://www.linkedin.com/in/rebeccathornburg/"
+             target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn-outline"
+             href="https://beckathornburg.com/"
+             target="_blank" rel="noopener noreferrer">Website</a>
         </div>
       </div>
+
       <div class="hero-right fade-up" style="transition-delay:0.18s">
         <img class="headshot" src="Rebecca%20Thornburg%20Headshot%202.PNG" alt="Becka Thornburg">
       </div>
+
     </section>
 
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 2 — BODY OF WORK
+    ══════════════════════════════════════════════════════════════ -->
     <section id="work">
+
       <div class="fade-up">
         <p class="section-label">Portfolio</p>
         <h2 class="section-headline">Body of Work</h2>
       </div>
 
+      <!-- ── 2A: VIDEO PRODUCTION ── -->
       <div class="subsection">
         <h3 class="subsection-headline fade-up">Video Production</h3>
         <p class="subsection-sub fade-up">Good content doesn't happen by accident. Every piece here started as an idea.
   Here's how I bring them to life.</p>
+
         <div class="video-scroll-wrap fade-up">
           <div class="video-row">
-            <a class="video-card" href="https://www.youtube.com/watch?v=lsdwA_WgYpM" target="_blank" rel="noopener
-  noreferrer">
-              <img src="https://img.youtube.com/vi/lsdwA_WgYpM/maxresdefault.jpg" data-videoid="lsdwA_WgYpM" 
-  alt="DraftKings Onboarding Video" loading="lazy">
-              <div class="video-card-body"><p>Our team overhauled DraftKings' entire onboarding experience from the
-  ground up. Focused on culture, connection, and making new hires feel at home from day one. I owned the planning,
-  scripting, b-roll, and editing.</p></div>
+
+            <a class="video-card"
+               href="https://www.youtube.com/watch?v=lsdwA_WgYpM"
+               target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/lsdwA_WgYpM/maxresdefault.jpg"
+                   data-videoid="lsdwA_WgYpM"
+                   alt="DraftKings Onboarding Video"
+                   loading="lazy">
+              <div class="video-card-body">
+                <p>Our team overhauled DraftKings' entire onboarding experience from the ground up. Focused on culture,
+  connection, and making new hires feel at home from day one. I owned the planning, scripting, b-roll, and editing.</p>
+              </div>
             </a>
-            <a class="video-card" href="https://www.youtube.com/watch?v=TLSYUPlvvww" target="_blank" rel="noopener
-  noreferrer">
-              <img src="https://img.youtube.com/vi/TLSYUPlvvww/maxresdefault.jpg" data-videoid="TLSYUPlvvww" 
-  alt="DraftKings Technology Series" loading="lazy">
-              <div class="video-card-body"><p>Our technology is one of our biggest differentiators. I wanted to let the
-  people working with it tell the story. This series puts employees front and center to break down what actually happens
-   behind the scenes on gameday at DraftKings.</p></div>
+
+            <a class="video-card"
+               href="https://www.youtube.com/watch?v=TLSYUPlvvww"
+               target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/TLSYUPlvvww/maxresdefault.jpg"
+                   data-videoid="TLSYUPlvvww"
+                   alt="DraftKings Technology Series"
+                   loading="lazy">
+              <div class="video-card-body">
+                <p>Our technology is one of our biggest differentiators. I wanted to let the people working with it tell
+   the story. This series puts employees front and center to break down what actually happens behind the scenes on
+  gameday at DraftKings.</p>
+              </div>
             </a>
-            <a class="video-card" href="https://www.youtube.com/watch?v=2aVAzv5bh-Y" target="_blank" rel="noopener
-  noreferrer">
-              <img src="https://img.youtube.com/vi/2aVAzv5bh-Y/maxresdefault.jpg" data-videoid="2aVAzv5bh-Y" alt="The
-  Crown is Yours" loading="lazy">
-              <div class="video-card-body"><p>What does 'The Crown is Yours' mean to you? The question we asked
-  employees all over the world. Their responses captured exactly who we are. Simple concept, powerful
-  execution.</p></div>
+
+            <a class="video-card"
+               href="https://www.youtube.com/watch?v=2aVAzv5bh-Y"
+               target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/2aVAzv5bh-Y/maxresdefault.jpg"
+                   data-videoid="2aVAzv5bh-Y"
+                   alt="The Crown is Yours"
+                   loading="lazy">
+              <div class="video-card-body">
+                <p>What does 'The Crown is Yours' mean to you? The question we asked employees all over the world. Their
+   responses captured exactly who we are. Simple concept, powerful execution.</p>
+              </div>
             </a>
-            <a class="video-card" href="https://www.youtube.com/watch?v=T6hHj9jBWJU" target="_blank" rel="noopener
-  noreferrer">
-              <img src="https://img.youtube.com/vi/T6hHj9jBWJU/maxresdefault.jpg" data-videoid="T6hHj9jBWJU" 
-  alt="DraftKings Life Podcast" loading="lazy">
-              <div class="video-card-body"><p>I own the full production of the DraftKings Life Podcast — concept,
-  booking, recording, and editing. Getting into the studio with leaders and colleagues to pull out real, unscripted
-  stories is one of my favorite parts of the job.</p></div>
+
+            <a class="video-card"
+               href="https://www.youtube.com/watch?v=T6hHj9jBWJU"
+               target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/T6hHj9jBWJU/maxresdefault.jpg"
+                   data-videoid="T6hHj9jBWJU"
+                   alt="DraftKings Life Podcast"
+                   loading="lazy">
+              <div class="video-card-body">
+                <p>I own the full production of the DraftKings Life Podcast — concept, booking, recording, and editing.
+  Getting into the studio with leaders and colleagues to pull out real, unscripted stories is one of my favorite parts
+  of the job.</p>
+              </div>
             </a>
-            <a class="video-card" href="https://www.youtube.com/watch?v=B37xInXTFvQ" target="_blank" rel="noopener
-  noreferrer">
-              <img src="https://img.youtube.com/vi/B37xInXTFvQ/maxresdefault.jpg" data-videoid="B37xInXTFvQ" 
-  alt="DraftKings Office Tour" loading="lazy">
-              <div class="video-card-body"><p>Office tour videos never miss. This brand new space was no exception. I
-  leaned into full MTV Cribs energy to capture the personality of our space and give people a real feel for DraftKings
-  culture.</p></div>
+
+            <a class="video-card"
+               href="https://www.youtube.com/watch?v=B37xInXTFvQ"
+               target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/B37xInXTFvQ/maxresdefault.jpg"
+                   data-videoid="B37xInXTFvQ"
+                   alt="DraftKings Office Tour"
+                   loading="lazy">
+              <div class="video-card-body">
+                <p>Office tour videos never miss. This brand new space was no exception. I leaned into full MTV Cribs
+  energy to capture the personality of our space and give people a real feel for DraftKings culture.</p>
+              </div>
             </a>
-            <a class="video-card" href="https://www.youtube.com/watch?v=VeOphNDrmq0" target="_blank" rel="noopener
-  noreferrer">
-              <img src="https://img.youtube.com/vi/VeOphNDrmq0/maxresdefault.jpg" data-videoid="VeOphNDrmq0" alt="Super
-  Bowl Local Spot" loading="lazy">
-              <div class="video-card-body"><p>Our station landed a 30-second local spot during the Super Bowl on Fox —
-  prime real estate. I pitched this piece with a clear goal: make it memorable, witty, and let our news personalities
-  shine in a way that set us apart from the competition. Still one of my favorites.</p></div>
+
+            <a class="video-card"
+               href="https://www.youtube.com/watch?v=VeOphNDrmq0"
+               target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/VeOphNDrmq0/maxresdefault.jpg"
+                   data-videoid="VeOphNDrmq0"
+                   alt="Super Bowl Local Spot"
+                   loading="lazy">
+              <div class="video-card-body">
+                <p>Our station landed a 30-second local spot during the Super Bowl on Fox — prime real estate. I pitched
+   this piece with a clear goal: make it memorable, witty, and let our news personalities shine in a way that set us
+  apart from the competition. Still one of my favorites.</p>
+              </div>
             </a>
-            <a class="video-card" href="https://www.youtube.com/watch?v=wZ9xlbnjrx4" target="_blank" rel="noopener
-  noreferrer">
-              <img src="https://img.youtube.com/vi/wZ9xlbnjrx4/maxresdefault.jpg" data-videoid="wZ9xlbnjrx4" alt="Why
-  Ask Siri When Shiri Gets It Right" loading="lazy">
-              <div class="video-card-body"><p>This one started with a pain point — Siri is notoriously bad at weather.
-  Noticing how similar "Siri" and "Shiri" sounded, I pitched a promo that turned a relatable frustration into a reason
-  to tune in: why ask Siri when Shiri gets it right?</p></div>
+
+            <a class="video-card"
+               href="https://www.youtube.com/watch?v=wZ9xlbnjrx4"
+               target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/wZ9xlbnjrx4/maxresdefault.jpg"
+                   data-videoid="wZ9xlbnjrx4"
+                   alt="Why Ask Siri When Shiri Gets It Right"
+                   loading="lazy">
+              <div class="video-card-body">
+                <p>This one started with a pain point — Siri is notoriously bad at weather. Noticing how similar "Siri"
+  and "Shiri" sounded, I pitched a promo that turned a relatable frustration into a reason to tune in: why ask Siri when
+   Shiri gets it right?</p>
+              </div>
             </a>
-            <a class="video-card" href="https://www.youtube.com/watch?v=br0MN1U9Jx0" target="_blank" rel="noopener
-  noreferrer">
-              <img src="https://img.youtube.com/vi/br0MN1U9Jx0/maxresdefault.jpg" data-videoid="br0MN1U9Jx0" 
-  alt="Viewer-Inspired Weather Segment" loading="lazy">
-              <div class="video-card-body"><p>This idea came straight from a viewer. A mom tweeted that her son watched
-  the news just to see the trucks go by during Catherine's weather updates. Since moms were our core morning show
-  target, I ran with it. If we could give kids a reason to tune in, moms would follow. Sometimes the silly ideas are
-  worth experimenting with.</p></div>
+
+            <a class="video-card"
+               href="https://www.youtube.com/watch?v=br0MN1U9Jx0"
+               target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/br0MN1U9Jx0/maxresdefault.jpg"
+                   data-videoid="br0MN1U9Jx0"
+                   alt="Viewer-Inspired Weather Segment"
+                   loading="lazy">
+              <div class="video-card-body">
+                <p>This idea came straight from a viewer. A mom tweeted that her son watched the news just to see the
+  trucks go by during Catherine's weather updates. Since moms were our core morning show target, I ran with it. If we
+  could give kids a reason to tune in, moms would follow. Sometimes the silly ideas are worth experimenting with.</p>
+              </div>
             </a>
-            <a class="video-card" href="https://www.youtube.com/watch?v=JGc6gC2jWnc" target="_blank" rel="noopener
-  noreferrer">
-              <img src="https://img.youtube.com/vi/JGc6gC2jWnc/maxresdefault.jpg" data-videoid="JGc6gC2jWnc" 
-  alt="YouTube News Series" loading="lazy">
-              <div class="video-card-body"><p>Not every big story is best told by an anchor reading a prompter. I
-  pitched a YouTube series built around the day's most compelling news — short, engaging clips designed to capture an
-  audience beyond the broadcast. Boston is a news-hungry market, and the numbers backed it up. Several videos from this
-  series became top performers on the channel.</p></div>
+
+            <a class="video-card"
+               href="https://www.youtube.com/watch?v=JGc6gC2jWnc"
+               target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/JGc6gC2jWnc/maxresdefault.jpg"
+                   data-videoid="JGc6gC2jWnc"
+                   alt="YouTube News Series"
+                   loading="lazy">
+              <div class="video-card-body">
+                <p>Not every big story is best told by an anchor reading a prompter. I pitched a YouTube series built
+  around the day's most compelling news — short, engaging clips designed to capture an audience beyond the broadcast.
+  Boston is a news-hungry market, and the numbers backed it up. Several videos from this series became top performers on
+   the channel.</p>
+              </div>
             </a>
+
           </div>
         </div>
       </div>
 
+
+      <!-- ── 2B: EVENT PRODUCING ── -->
       <div class="subsection">
         <h3 class="subsection-headline fade-up">Event Producing</h3>
         <p class="subsection-sub fade-up">A few examples of my event work can be seen through my BeckEvents website and
   social channels.</p>
+
         <div class="card-grid-2 fade-up">
-          <a class="project-card" href="https://beckathornburg.my.canva.site/beckevents" target="_blank" rel="noopener
-  noreferrer">
-            <img class="card-thumb" src="Beck%20Events%20Center.png" alt="BeckEvents Website" style="object-fit:
-  contain; object-position: center; background: #0f0f0f; padding: 16px;">
-            <div class="card-body"><p>My website for people to get a glimpse into who I am, my client testimonials, and
-  a few links to my services.</p></div>
+
+          <a class="project-card"
+             href="https://beckathornburg.my.canva.site/beckevents"
+             target="_blank" rel="noopener noreferrer">
+            <img class="card-thumb"
+                 src="Beck%20Events%20Center.png"
+                 alt="BeckEvents Website"
+                 style="object-fit: contain; object-position: center; background: #0f0f0f; padding: 16px;">
+            <div class="card-body">
+              <p>My website for people to get a glimpse into who I am, my client testimonials, and a few links to my
+  services.</p>
+            </div>
           </a>
-          <a class="project-card" href="https://www.tiktok.com/@beckevents" target="_blank" rel="noopener noreferrer">
+
+          <a class="project-card"
+             href="https://www.tiktok.com/@beckevents"
+             target="_blank" rel="noopener noreferrer">
             <div class="card-thumb-placeholder bg-tiktok">
               <svg width="60" height="60" viewBox="0 0 24 24" fill="white" aria-hidden="true">
                 <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0
@@ -485,19 +806,26 @@
               </svg>
               <span class="ph-label">@beckevents on TikTok</span>
             </div>
-            <div class="card-body"><p>See me in action on my socials!</p></div>
+            <div class="card-body">
+              <p>See me in action on my socials!</p>
+            </div>
           </a>
+
         </div>
       </div>
 
+
+      <!-- ── 2C: NEWSWORTHY PROJECTS ── -->
       <div class="subsection">
         <h3 class="subsection-headline fade-up">Newsworthy Projects</h3>
         <p class="subsection-sub fade-up">Since early 2024, AI has completely captivated my attention and I've been
   diving deep into the tech to become a leader in this space.</p>
+
         <div class="card-grid-3 fade-up">
-          <a class="project-card" 
-  href="https://www.linkedin.com/posts/rebeccathornburg_hackathon-pdfpdf-activity-7429912306513403904-Vh6o" 
-  target="_blank" rel="noopener noreferrer">
+
+          <a class="project-card"
+             href="https://www.linkedin.com/posts/rebeccathornburg_hackathon-pdfpdf-activity-7429912306513403904-Vh6o"
+             target="_blank" rel="noopener noreferrer">
             <div class="card-thumb-placeholder bg-linkedin">
               <svg width="58" height="58" viewBox="0 0 24 24" fill="white" aria-hidden="true">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136
@@ -508,12 +836,16 @@
               </svg>
               <span class="ph-label">AI Hackathon — 3rd Place</span>
             </div>
-            <div class="card-body"><p>Placed 3rd in DraftKings' global AI Hackathon, building an enterprise chatbot
-  using ChatGPT, n8n, and Slack. Perfect presentation score — thanks in part to the infomercial I created that had the
-  whole company talking.</p></div>
+            <div class="card-body">
+              <p>Placed 3rd in DraftKings' global AI Hackathon, building an enterprise chatbot using ChatGPT, n8n, and
+  Slack. Perfect presentation score — thanks in part to the infomercial I created that had the whole company
+  talking.</p>
+            </div>
           </a>
-          <a class="project-card" href="https://www.linkedin.com/in/rebeccathornburg/" target="_blank" rel="noopener
-  noreferrer">
+
+          <a class="project-card"
+             href="https://www.linkedin.com/in/rebeccathornburg/"
+             target="_blank" rel="noopener noreferrer">
             <div class="card-thumb-placeholder bg-workflow">
               <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4" 
   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -528,24 +860,38 @@
               </svg>
               <span class="ph-label">Workflow Automation</span>
             </div>
-            <div class="card-body"><p>The biggest mindset shift in my AI journey? Thinking in workflows. I rebuilt our
-  entire content approvals process from scratch, integrating Slack, Airtable, and Monday.com to eliminate bottlenecks
-  and scale smarter.</p></div>
+            <div class="card-body">
+              <p>The biggest mindset shift in my AI journey? Thinking in workflows. I rebuilt our entire content
+  approvals process from scratch, integrating Slack, Airtable, and Monday.com to eliminate bottlenecks and scale
+  smarter.</p>
+            </div>
           </a>
+
           <div class="project-card no-link">
-            <img class="card-thumb" src="Wendy%20Thumbnail.png" alt="Custom GPT for BeckEvents Clients">
-            <div class="card-body"><p>I built a custom GPT to act as a 24/7 personal assistant for BeckEvents clients —
-  answering questions instantly and delivering a seamless, high-end experience from day one.</p></div>
+            <img class="card-thumb"
+                 src="Wendy%20Thumbnail.png"
+                 alt="Custom GPT for BeckEvents Clients">
+            <div class="card-body">
+              <p>I built a custom GPT to act as a 24/7 personal assistant for BeckEvents clients — answering questions
+  instantly and delivering a seamless, high-end experience from day one.</p>
+            </div>
           </div>
+
         </div>
       </div>
 
+
+      <!-- ── 2D: SOCIAL MEDIA MARKETING ── -->
       <div class="subsection">
         <h3 class="subsection-headline fade-up">Social Media Marketing</h3>
         <p class="subsection-sub fade-up">Social media shouldn't be intimidating. I help small businesses show up, stand
    out, and reach the right audience through content that actually works.</p>
+
         <div class="card-grid-3 fade-up">
-          <a class="project-card" href="https://modernfinancialwellness.com/" target="_blank" rel="noopener noreferrer">
+
+          <a class="project-card"
+             href="https://modernfinancialwellness.com/"
+             target="_blank" rel="noopener noreferrer">
             <div class="card-thumb-placeholder bg-finance">
               <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" 
   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -554,12 +900,15 @@
               </svg>
               <span class="ph-label">Modern Financial Wellness</span>
             </div>
-            <div class="card-body"><p>Finance content doesn't have to be boring. I helped a financial advisor cut
-  through a saturated market by leaning into his authentic voice, sharp money mindset, and actionable tips his audience
-  could actually use.</p></div>
+            <div class="card-body">
+              <p>Finance content doesn't have to be boring. I helped a financial advisor cut through a saturated market
+  by leaning into his authentic voice, sharp money mindset, and actionable tips his audience could actually use.</p>
+            </div>
           </a>
-          <a class="project-card" href="https://www.instagram.com/washnaturals/" target="_blank" rel="noopener
-  noreferrer">
+
+          <a class="project-card"
+             href="https://www.instagram.com/washnaturals/"
+             target="_blank" rel="noopener noreferrer">
             <div class="card-thumb-placeholder bg-instagram">
               <svg width="58" height="58" viewBox="0 0 24 24" fill="white" aria-hidden="true">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069
@@ -575,12 +924,15 @@
               </svg>
               <span class="ph-label">@washnaturals</span>
             </div>
-            <div class="card-body"><p>When the product is great, the content writes itself. I built out full content
-  pillars, editorial calendars, and photoshoots — and partnered with influencers to bring the brand to life on
-  social.</p></div>
+            <div class="card-body">
+              <p>When the product is great, the content writes itself. I built out full content pillars, editorial
+  calendars, and photoshoots — and partnered with influencers to bring the brand to life on social.</p>
+            </div>
           </a>
-          <a class="project-card" href="https://www.linkedin.com/company/draftkings-inc" target="_blank" rel="noopener
-  noreferrer">
+
+          <a class="project-card"
+             href="https://www.linkedin.com/company/draftkings-inc"
+             target="_blank" rel="noopener noreferrer">
             <div class="card-thumb-placeholder bg-dk">
               <svg width="58" height="58" viewBox="0 0 24 24" fill="white" aria-hidden="true">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136
@@ -591,20 +943,27 @@
               </svg>
               <span class="ph-label">DraftKings Life</span>
             </div>
-            <div class="card-body"><p>LinkedIn is where talent goes to research before they apply. I managed all
-  DraftKings Life social channels to attract top candidates and ensure every touchpoint reflected a company worth
-  joining.</p></div>
+            <div class="card-body">
+              <p>LinkedIn is where talent goes to research before they apply. I managed all DraftKings Life social
+  channels to attract top candidates and ensure every touchpoint reflected a company worth joining.</p>
+            </div>
           </a>
+
         </div>
       </div>
 
     </section>
 
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 3 — SKILLS
+    ══════════════════════════════════════════════════════════════ -->
     <section id="skills">
       <div class="fade-up">
         <p class="section-label">Capabilities</p>
         <h2 class="section-headline">Skills</h2>
       </div>
+
       <div class="skills-cloud fade-up" id="skillsCloud">
         <span class="skill-tag">Event Management</span>
         <span class="skill-tag">AI Operations</span>
@@ -628,7 +987,12 @@
       </div>
     </section>
 
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 4 — FOOTER
+    ══════════════════════════════════════════════════════════════ -->
     <section id="footer">
+
       <div class="footer-left fade-up">
         <h2 class="footer-headline">Thank you!</h2>
         <p class="footer-text">
@@ -637,9 +1001,16 @@
           — I'd love to chat more about my experience.
         </p>
       </div>
+
+
     </section>
 
+
+    <!-- ══════════════════════════════════════════════════════════
+         JAVASCRIPT
+    ══════════════════════════════════════════════════════════════ -->
     <script>
+      // ── Scroll Fade-Up Animations ──────────────────────────────
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach(entry => {
@@ -653,6 +1024,8 @@
       );
       document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
+      // ── YouTube Thumbnail Fallback ─────────────────────────────
+      // If maxresdefault doesn't exist, fall back to hqdefault
       document.querySelectorAll('.video-card img[data-videoid]').forEach(img => {
         img.addEventListener('error', function () {
           const id = this.getAttribute('data-videoid');
@@ -662,6 +1035,9 @@
         });
       });
 
+
+      // ── Staggered Animation Delays for Card Grids ─────────────
+      // Give sibling cards a cascade feel
       document.querySelectorAll('.card-grid-2, .card-grid-3').forEach(grid => {
         Array.from(grid.children).forEach((card, i) => {
           card.style.transitionDelay = (i * 0.08) + 's';
